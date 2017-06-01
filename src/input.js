@@ -10,7 +10,14 @@ var allowedAlph = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 function keyPressed() {
   if (allowedAlph.indexOf(key) >= 0) {
-    processKeyGUI(key);
+    processKeyPressGUI();
+    redraw();
+  }
+}
+
+function keyReleased() {
+  if (allowedAlph.indexOf(key) >= 0) {
+    processKeyReleasedGUI();
     redraw();
   }
 }
