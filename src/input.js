@@ -6,18 +6,17 @@
 // 1 June 2017
 //
 
-var allowedAlph = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 function keyPressed() {
-  if (allowedAlph.indexOf(key) >= 0) {
-    processKeyPressGUI();
+  if (ALPHABET.indexOf(key) >= 0) {
+    processKeyPress();
     redraw();
   }
 }
 
 function keyReleased() {
-  if (allowedAlph.indexOf(key) >= 0) {
-    processKeyReleasedGUI();
+  if (ALPHABET.indexOf(key) >= 0) {
+    processKeyReleased();
     redraw();
   }
 }

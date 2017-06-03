@@ -8,17 +8,6 @@
 
 var gui;
 
-function processKeyPressGUI() {
-  if (gui.plaintext.length < 40) {
-    gui.plaintext += key
-    gui.selectedKey = key
-  }
-}
-
-function processKeyReleasedGUI() {
-  delete gui.selectedKey
-}
-
 function createGUI() {
 
   // Recreate GUI object

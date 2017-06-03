@@ -17,3 +17,23 @@ function setup() {
 function draw() {
   renderGUI();
 }
+
+function processKeyPress() {
+  if (gui.plaintext.length < 40) {
+    if (iiRot.nextIsTurnover()) iRot.advance();
+    if (iiiRot.nextIsTurnover()) iiRot.advance();
+    iiiRot.advance();
+
+    var output = plugboard.mapping(iiiRot.returnMapping(iiRot.returnMapping(iRot.returnMapping(bReflect.mapping(iRot.forwardMapping(iiRot.forwardMapping(iiiRot.forwardMapping(plugboard.mapping(key)))))))));
+
+    gui.plaintext += key;
+    gui.ciphertext += output;
+    gui.selectedKey = key;
+    gui.selectedLamp = output;
+  }
+}
+
+function processKeyReleased() {
+  delete gui.selectedKey;
+  delete gui.selectedLamp;
+}
