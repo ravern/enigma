@@ -20,16 +20,30 @@ function draw() {
 
 function processKeyPress() {
   if (gui.plaintext.length < 40) {
-    if (iiRot.nextIsTurnover()) iRot.advance();
-    if (iiiRot.nextIsTurnover()) iiRot.advance();
-    iiiRot.advance();
 
-    var output = plugboard.mapping(iiiRot.returnMapping(iiRot.returnMapping(iRot.returnMapping(bReflect.mapping(iRot.forwardMapping(iiRot.forwardMapping(iiiRot.forwardMapping(plugboard.mapping(key)))))))));
+    // Advance the rotors
+    rotors[rotors.length - 1].advance();
+    for (var i = rotors.length - 1; i > 0; i--) {
+      if (rotors[i].turnedover()) rotors[i - 1].advance();
+    }
 
+    // All the mappings
+    var char = key;
+    char = plugboard.mapping(char);
+    for (var i = rotors.length - 1; i >= 0; i--) {
+      char = rotors[i].forwardMapping(char);
+    }
+    char = reflector.mapping(char);
+    for (var i = 0; i < rotors.length; i++) {
+      char = rotors[i].returnMapping(char);
+    }
+    char = plugboard.mapping(char);
+
+    // Update the GUI
     gui.plaintext += key;
-    gui.ciphertext += output;
+    gui.ciphertext += char;
     gui.selectedKey = key;
-    gui.selectedLamp = output;
+    gui.selectedLamp = char;
   }
 }
 

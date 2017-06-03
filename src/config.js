@@ -8,8 +8,15 @@
 
 // Config
 var ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-var plugboard = Plugboard('AB JK');
-var iiiRot = Rotor('BDFHJLCPRTXVZNYEIWGAKMUSQO', 0, 0, 'V');
-var iiRot = Rotor('AJDKSIRUXBLHWTMCQGZNPYFVOE', 0, 0, 'E');
-var iRot = Rotor('EKMFLGDQVZNTOWYHXUSPAIBRCJ', 0, 0, 'Q');
-var bReflect = Reflector('YRUHQSLDPXNGOKMIEBFZCWVJAT');
+
+var PLUGBOARD = Plugboard('');
+
+var III_ROTOR = Rotor('BDFHJLCPRTXVZNYEIWGAKMUSQO', 0, 0, 'V');
+var II_ROTOR = Rotor('AJDKSIRUXBLHWTMCQGZNPYFVOE', 0, 0, 'E');
+var I_ROTOR = Rotor('EKMFLGDQVZNTOWYHXUSPAIBRCJ', 0, 0, 'Q');
+
+var B_REFLECTOR = Reflector('YRUHQSLDPXNGOKMIEBFZCWVJAT');
+
+var plugboard = PLUGBOARD;
+var rotors = [I_ROTOR, II_ROTOR, III_ROTOR];
+var reflector = B_REFLECTOR;

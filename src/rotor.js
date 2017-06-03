@@ -23,8 +23,8 @@ function Rotor(rawMapping, ringSetting, rotorOffset, turnoverChar) {
       rotorOffset = mod(rotorOffset + 1, ALPHABET.length);
     },
     // Whether it's next move turns the next rotor
-    nextIsTurnover: function() {
-      return rotorOffset == turnoverPos;
+    turnedover: function() {
+      return rotorOffset == turnoverPos + 1;
     },
     // Returns the corresponding char mapping, when going forwards
     forwardMapping: function(char) {
