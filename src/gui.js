@@ -17,10 +17,10 @@ function createGUI() {
     keyboardHeight: 300,
     titlebarHeight: 30,
 
-    priColor: [0, 0, 0],
-    secColor: [40, 40, 40],
-    lightColor: [255, 255, 255],
-    secLightColor: [245, 245, 245],
+    priColor: [30, 40, 50],
+    secColor: [48, 44, 21],
+    lightColor: [240,227,103],
+    secLightColor: [205, 133, 63],
 
     plaintext: '',
     ciphertext: ''
@@ -87,7 +87,7 @@ function renderKeyboard() {
     gui.selectedKey == rows[0][i] ? fill(gui.secLightColor) : fill(gui.priColor);
     rect(40 + i * (keysize + 18), gui.height - gui.keyboardHeight + yOff + 10, keysize, keysize);
 
-    gui.selectedKey == rows[0][i] ? fill(gui.priColor) : fill(gui.secLightColor);
+    gui.selectedKey == rows[0][i] ? fill(gui.priColor) : fill(gui.lightColor);
     textSize(32);
     textAlign(CENTER);
     text(rows[0][i], 40 + i * (keysize + 18) + 22, gui.height - gui.keyboardHeight + yOff + 10 + 34)
@@ -97,7 +97,7 @@ function renderKeyboard() {
     gui.selectedKey == rows[1][i] ? fill(gui.secLightColor) : fill(gui.priColor);
     rect(75 + i * (keysize + 18), gui.height - gui.keyboardHeight + yOff + 10 + (keysize + 20), keysize, keysize);
 
-    gui.selectedKey == rows[1][i] ? fill(gui.priColor) : fill(gui.secLightColor);
+    gui.selectedKey == rows[1][i] ? fill(gui.priColor) : fill(gui.lightColor);
     textSize(32);
     textAlign(CENTER);
     text(rows[1][i], 75 + i * (keysize + 18) + 22, gui.height - gui.keyboardHeight + yOff + 10 + 34 + (keysize + 20))
@@ -107,7 +107,7 @@ function renderKeyboard() {
     gui.selectedKey == rows[2][i] ? fill(gui.secLightColor) : fill(gui.priColor);
     rect(40 + i * (keysize + 18), gui.height - gui.keyboardHeight + yOff + 10 + (keysize + 20) * 2, keysize, keysize);
 
-    gui.selectedKey == rows[2][i] ? fill(gui.priColor) : fill(gui.secLightColor);
+    gui.selectedKey == rows[2][i] ? fill(gui.priColor) : fill(gui.lightColor);
     textSize(32);
     textAlign(CENTER);
     text(rows[2][i], 40 + i * (keysize + 18) + 22, gui.height - gui.keyboardHeight + yOff + 10 + (keysize + 20) * 2 + 34)

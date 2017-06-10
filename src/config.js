@@ -6,7 +6,7 @@
 // 1 June 2017
 //
 
-// Config
+// CONSTANTS
 var ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 var PLUGBOARD = Plugboard('');
@@ -17,6 +17,7 @@ var I_ROTOR = Rotor('EKMFLGDQVZNTOWYHXUSPAIBRCJ', 0, 0, 'Q');
 
 var B_REFLECTOR = Reflector('YRUHQSLDPXNGOKMIEBFZCWVJAT');
 
+// Config
 var plugboard = PLUGBOARD;
 var rotors = [I_ROTOR, II_ROTOR, III_ROTOR];
 var reflector = B_REFLECTOR;
