@@ -2,8 +2,8 @@
 by Ravern Koh and Ong Wei Qiang
 
 # Pre-requisites
-- [ ] Adjust your terminal height to ~50 rows tall to obtain the optimal viewing experience.
-- [ ] Install Ruby
+1. Adjust your terminal height to ~50 rows tall to obtain the optimal viewing experience.
+2. Install Ruby
 
 # Configuration
 Configuration goes into the config.rb file. 4 components can be configured. The config file defines a single function `config` which has to return a hash containing the 4 components as keys.
