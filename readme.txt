@@ -1,6 +1,8 @@
 # Enigma Emulator
 by Ravern Koh and Ong Wei Qiang
 
+NOTE: USE THE README.MD FILE FOR THE OPTIMAL READING EXPERIENCE.
+
 # Pre-requisites
 1. Adjust your terminal height to ~50 rows tall to obtain the optimal viewing experience.
 2. Install Ruby
