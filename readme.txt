@@ -1,7 +1,8 @@
 # Enigma Emulator
 by Ravern Koh and Ong Wei Qiang
 
-NOTE: USE THE README.MD FILE FOR THE OPTIMAL READING EXPERIENCE.
+GITHUB REPO URL: http://github.com/ravernkohdev/enigma
+NOTE: USE THE README.MD FILE FOR THE OPTIMAL READING EXPERIENCE. TO VIEW THE MD FILE, VISIT THE GITHUB REPO
 
 # Pre-requisites
 1. Adjust your terminal height to ~50 rows tall to obtain the optimal viewing experience.
