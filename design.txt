@@ -1,0 +1,27 @@
+Stage      | Char Mapping
+---------- + ------------
+Plaintext  | A
+Plugboard  | A => B
+Rotor 1    | C => G
+Rotor 2    | F => D
+Rotor 3    | G => X
+Reflector  | F => B
+Rotor 3    | C => G
+Rotor 2    | F => D
+Rotor 1    | G => X
+Plugboard  | A => B
+Ciphertext | B
+
+Rotor 1
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+B Z E F G H I N H D E X W Y Z P R I L J N M A Q U D
+
+Rotor 2
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+B Z E F G H I N H D E X W Y Z P R I L J N M A Q U D
+
+Rotor 3
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+B Z E F G H I N H D E X W Y Z P R I L J N M A Q U D
+
+Encrypted message: BDZ_____
