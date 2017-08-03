@@ -1,13 +1,13 @@
 def config
   {
     plugboard: {
-      mapping: []
+      mapping: ['AB']
     },
     rotors: [
       {
         mapping: 'EKMFLGDQVZNTOWYHXUSPAIBRCJ',
         ring_setting: 0,
-        rotor_offset: 0,
+        rotor_offset: 5,
         turnover_ch: 'Q'
       },
       {

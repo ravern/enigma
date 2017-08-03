@@ -7,6 +7,7 @@
 #
 
 # Require files
+require 'colorize'
 require_relative './config'
 
 # Constants
@@ -23,13 +24,13 @@ def main
   puts '---------------------------------------------------'
 
   # Load config
-  print 'Loading config'
+  print 'Loading config'.colorize(:yellow)
   state = config
   3.times do
     sleep 0.5
-    print '.'
+    print '.'.colorize(:yellow)
   end
-  print "\n"
+  print "\n\n"
 
   # Change the mapping for rotors based on ring setting
   state[:rotors].each do |rotor|
@@ -67,14 +68,14 @@ def main
     puts
     state[:rotors].each_with_index do |rotor, i|
       puts "Rotor #{i + 1}"
-      print_with_rot ALPHABET, 0
-      print_with_rot ALPHABET, rotor[:rotor_offset]
+      print_with_rot ALPHABET, 0, :green
+      print_with_rot ALPHABET, rotor[:rotor_offset], :blue
       puts
-      print_with_rot rotor[:mapping], rotor[:rotor_offset]
+      print_with_rot rotor[:mapping], rotor[:rotor_offset], :blue
 
       # Print offsetted chars
       chars = rotor[:mapping].chars.map { |x| ALPHABET[mod(ALPHABET.index(x) - rotor[:rotor_offset])] }
-      print_with_rot chars.join(''), rotor[:rotor_offset]
+      print_with_rot chars.join(''), rotor[:rotor_offset], :green
       puts
     end
 
@@ -83,7 +84,7 @@ def main
     puts '---------- + ------------'
 
     # Print plaintext char
-    puts "Plaintext  | #{ch}"
+    puts "Plaintext  | #{ch}".colorize(:light_black)
 
     # Map the char through the plugboard
     plug_ch = ch
@@ -92,46 +93,46 @@ def main
         plug_ch = pair[1]
       end
     end
-    puts "Plugboard  | #{ch} => #{plug_ch}"
+    puts "Plugboard  | #{ch} => #{plug_ch}".colorize(:red)
 
     # Map the char through each of the rotors and print
     old_ch = plug_ch
     state[:rotors].reverse.each_with_index do |rotor, i|
       idx = mod(ALPHABET.index(old_ch) + rotor[:rotor_offset])
       new_ch = rotor[:mapping][idx]
-      puts "Rotor #{state[:rotors].length - i}    | #{ALPHABET[idx]} => #{new_ch}"
+      puts "Rotor #{state[:rotors].length - i}    | #{ALPHABET[idx]} => #{new_ch}".colorize(:yellow)
       old_ch = ALPHABET[mod(ALPHABET.index(new_ch) - rotor[:rotor_offset])]
     end
 
     # Map the char through the reflector
     reflect_ch = state[:reflector][:mapping][ALPHABET.index(old_ch)]
-    puts "Reflector  | #{old_ch} => #{reflect_ch}"
+    puts "Reflector  | #{old_ch} => #{reflect_ch}".colorize(:green)
 
     # Map the char through reverse of each of the rotors and print
     old_ch = reflect_ch
     state[:rotors].each_with_index do |rotor, i|
       idx = mod(ALPHABET.index(old_ch) + rotor[:rotor_offset])
       new_ch = ALPHABET[rotor[:mapping].index(ALPHABET[idx])]
-      puts "Rotor #{i + 1}    | #{ALPHABET[idx]} => #{new_ch}"
+      puts "Rotor #{i + 1}    | #{ALPHABET[idx]} => #{new_ch}".colorize(:blue)
       old_ch = ALPHABET[mod(ALPHABET.index(new_ch) - rotor[:rotor_offset])]
     end
 
     # Map through the plugboard again
     plug_ch = old_ch
     state[:plugboard][:mapping].each do |pair|
-      if pair[0] == ch
+      if pair[0] == plug_ch
         plug_ch = pair[1]
       end
     end
-    puts "Plugboard  | #{plug_ch} => #{plug_ch}"
+    puts "Plugboard  | #{old_ch} => #{plug_ch}".colorize(:cyan)
 
     # Print ciphertext char
     c_ch = plug_ch
-    puts "Ciphertext | #{plug_ch}"
+    puts "Ciphertext | #{plug_ch}".colorize(:light_black)
 
     # Print resulting ciphertext
     result += c_ch
-    puts "\nEncrypted message: #{result}#{'_' * (message.length - result.length)}"
+    puts "\nEncrypted message: #{result}#{'_' * (message.length - result.length)}".colorize(:green)
 
     # Print divider
     puts '--------------------------------------------------'
@@ -146,8 +147,8 @@ def main
 end
 
 # Print with rotation
-def print_with_rot(str, rot)
-  puts rotate(str, rot).chars.join(' ')
+def print_with_rot(str, rot, color)
+  puts rotate(str, rot).chars.join(' ').colorize(color)
 end
 
 # Rotate a string
